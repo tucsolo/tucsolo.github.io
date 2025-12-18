@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ErgoDesk - Il Futuro del Lavoro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-light: #f8f9fa;
+            --text-dark: #333;
+            --transition-speed: 0.6s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigazione e Lingua */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .lang-switch button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .lang-switch button:hover {
+            background: var(--accent-color);
+        }
+
+        /* Container Scorrimento */
+        main {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 10%;
+            scroll-snap-align: start;
+            transition: opacity var(--transition-speed);
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-light);
+            flex-direction: row-reverse;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Immagine Tonda */
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .round-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        section:hover .round-img {
+            transform: scale(1.05);
+        }
+
+        /* Testi */
+        .text-container {
+            flex: 1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Logica Traduzione */
+        [lang="en"] { display: none; }
+        
+        body.en [lang="it"] { display: none; }
+        body.en [lang="en"] { display: block; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            .round-img {
+                width: 250px;
+                height: 250px;
+            }
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>ERGO</strong>DESK</div>
+        <div class="lang-switch">
+            <button onclick="toggleLanguage()">IT / EN</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="presentazione">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?auto=format&fit=crop&w=600&q=80" alt="Design" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Il Progetto ErgoFlow</h2>
+                    <h2 lang="en">The ErgoFlow Project</h2>
+                    <p lang="it">ErgoFlow nasce dalla necessità di ridefinire lo spazio di lavoro moderno. Non è solo una scrivania, ma un ecosistema progettato per il benessere e la produttività sostenibile.</p>
+                    <p lang="en">ErgoFlow was born from the need to redefine the modern workspace. It's not just a desk, but an ecosystem designed for well-being and sustainable productivity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="funzionalita">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80" alt="Features" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Funzionalità Avanzate</h2>
+                    <h2 lang="en">Advanced Features</h2>
+                    <p lang="it">Regolazione millimetrica dell'altezza, gestione cavi a scomparsa e superficie in legno rigenerato con texture anti-affaticamento.</p>
+                    <p lang="en">Millimeter height adjustment, hidden cable management, and reclaimed wood surface with anti-fatigue texture.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefici">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Benefits" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Benefici per la Salute</h2>
+                    <h2 lang="en">Health Benefits</h2>
+                    <p lang="it">Riduzione drastica del dolore cervicale e miglioramento della circolazione grazie all'alternanza tra posizione seduta e in piedi.</p>
+                    <p lang="en">Drastic reduction in neck pain and improved circulation thanks to the alternation between sitting and standing positions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="funzionamento">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80" alt="Operation" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Come Funziona</h2>
+                    <h2 lang="en">How it Works</h2>
+                    <p lang="it">Tramite un'interfaccia touch intuitiva o via app, puoi memorizzare le tue altezze preferite e ricevere notifiche quando è il momento di cambiare posizione.</p>
+                    <p lang="en">Through an intuitive touch interface or via app, you can store your preferred heights and receive notifications when it's time to change position.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="collabora">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80" alt="Partner" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Collabora con Noi</h2>
+                    <h2 lang="en">Partner with Us</h2>
+                    <p lang="it">Siamo alla ricerca di partner e investitori che condividano la nostra visione. Unisciti alla rivoluzione dell'ufficio intelligente.</p>
+                    <p lang="en">We are looking for partners and investors who share our vision. Join the smart office revolution.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatti">
+            <div class="content-wrapper">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=600&q=80" alt="Contact" class="round-img">
+                </div>
+                <div class="text-container">
+                    <h2 lang="it">Contattaci</h2>
+                    <h2 lang="en">Contact Us</h2>
+                    <p lang="it">Hai domande? Scrivici a: <strong>info@ergodesk-project.com</strong><br>Sede: Milano, Italia</p>
+                    <p lang="en">Have questions? Email us at: <strong>info@ergodesk-project.com</strong><br>Office: Milan, Italy</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('en');
+        }
+
+        // Effetto Fade-in allo scrolling per rendere le transizioni più eleganti
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                } else {
+                    entry.target.style.opacity = "0";
+                    entry.target.style.transform = "translateY(20px)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.transition = "all 0.8s ease-out";
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
